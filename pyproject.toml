@@ -34,6 +34,3 @@ extend-ignore-re = [
 
 [tool.typos.default.extend-identifiers]
 alls = "alls"
-
-[tool.poetry.scripts]
-backend = "fastapi.cli:main"
