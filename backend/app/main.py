@@ -10,15 +10,16 @@ from app.api.main import api_router
 from app.core.config import settings
 import logging
 
-FRONTEND_DIR = Path(__file__).parent / "frontend"
+CURRENT_DIR = Path(__file__).resolve().parent
+FRONTEND_DIR = CURRENT_DIR / "frontend"
 
 
 def custom_generate_unique_id(route: APIRoute) -> str:
     return f"{route.tags[0]}-{route.name}"
 
 
-#if settings.SENTRY_DSN and settings.FASTAPI_ENV != "development":
-#    sentry_sdk.init(dsn=str(settings.SENTRY_DSN), enable_tracing=True)
+if settings.SENTRY_DSN and settings.FASTAPI_ENV != "development":
+    sentry_sdk.init(dsn=str(settings.SENTRY_DSN), enable_tracing=True)
 
 logging.basicConfig(
     level=logging.INFO,
