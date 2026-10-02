@@ -10,7 +10,8 @@ from app.api.main import api_router
 from app.core.config import settings
 import logging
 
-FRONTEND_DIR = Path(__file__).parent.parent.parent / "frontend"
+CURRENT_DIR = Path(__file__).resolve().parent
+FRONTEND_DIR = CURRENT_DIR / "frontend"
 
 
 def custom_generate_unique_id(route: APIRoute) -> str:
