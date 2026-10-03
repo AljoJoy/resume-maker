@@ -81,7 +81,7 @@ function RouteComponent() {
       setError(null)
       setSubmitted(false)
       const response = await axios.post<ResumeAnalysis>(
-        "http://localhost:8000/api/v1/score_checker/analyze",
+        `${(import.meta.env.VITE_API_URL ?? "").replace(/\/+$/, "")}/api/v1/score_checker/analyze`,
         payload,
       )
       setAnalysis(response.data)
